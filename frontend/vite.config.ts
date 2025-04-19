@@ -8,4 +8,19 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+  preview: {
+    allowedHosts: [
+        "vvc-qpo.mine.bz"
+    ]
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: "http://localhost:5000",
+        changeOrigin: true,
+        secure: false,
+        rewrite: path => path.replace('/api', '/api')
+      }
+    }
+  }
 })

@@ -30,11 +30,11 @@ def get_chart_data():
 def get_image(filename):
     
     if not filename.endswith(('.jpg', '.png', '.jpeg', '.gif')):
-        abort(400, description="Invalid file type")
+        abort(400, description="invalid file type")
     
     file_path = os.path.join(imgdir, filename)
     if not os.path.isfile(file_path):
-        abort(404, description="Image not found")
+        abort(404, description="image not found")
     
     return send_from_directory(imgdir, filename)
 
